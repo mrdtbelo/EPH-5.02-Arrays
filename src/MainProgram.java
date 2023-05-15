@@ -8,7 +8,7 @@ class MainProgram {
     private static int[] numbers;
 
     public static void main(String[] args){
-        withNegatives = false;
+        withNegatives = true;
         maxAbsolute = 100;
         numbers = new int[10];
         fillArray(numbers, withNegatives, maxAbsolute);
@@ -56,7 +56,9 @@ class MainProgram {
      */
     private static int sumUp(int[] array){
         int result = 0;
-        //Hier muss Quellcode ergänzt werden.
+        for(int i = 0; i < array.length; i++){
+            result = result + array[i];
+        }
         return result;
     }
 
@@ -69,7 +71,11 @@ class MainProgram {
      */
     private static int countNegatives(int[] array){
         int result = 0;
-        //Hier muss Quellcode ergänzt werden.
+        for(int i = 0; i < array.length; i++){
+            if(array[i] < 0){
+                result++;
+            }
+        }
         return result;
     }
 
@@ -82,7 +88,11 @@ class MainProgram {
      */
     private static int sumUpNegatives(int[] array){
         int result = 0;
-        //Hier muss Quellcode ergänzt werden.
+        for(int i = 0; i < array.length; i++){
+            if(array[i] < 0){
+                result = result + array[i];
+            }
+        }
         return result;
     }
 
