@@ -20,6 +20,8 @@ class MainProgram {
         System.out.println("Summe aller Zahlen im Array: " + sumUp(numbers));
         System.out.println("In diesem Array gibt es " + countNegatives(numbers) + " negative Zahlen.");
         System.out.println("Summe der negativen Zahlen: " + sumUpNegatives(numbers));
+        System.out.println("Maximumwert : " + findMaximum(numbers));
+        System.out.println("Index des Maximumwertes: " + findMaximumIndex(numbers));
     }
 
     private static void fillArray(int[] array, boolean wN, int maxA){
@@ -47,7 +49,6 @@ class MainProgram {
         }
     }
 
-
     /**
      * 1. Alle Werte aufaddieren
      * Schreiben Sie eine Methode sumUp, die als Parameter ein Array des Typs int übergeben bekommt. Die Methode sumUp soll die enthaltenen Zahlen addieren und das Ergebnis zurückliefern.
@@ -61,7 +62,6 @@ class MainProgram {
         }
         return result;
     }
-
 
     /**
      * 2. Negative Werte zählen - hierzu bitte in Zeile 11 withNegatives = true setzen.
@@ -79,7 +79,6 @@ class MainProgram {
         return result;
     }
 
-
     /**
      * 3. Negative Werte aufsummieren
      * Schreiben Sie eine Methode sumUpNegatives, die als Parameter ein Array des Typs int übergeben bekommt. Die Methode sumUpNegatives soll die Summe der negativen Werte in diesem Array zurückgeben.
@@ -96,23 +95,35 @@ class MainProgram {
         return result;
     }
 
-
-
     /** 4. Bestimmen des Maximums in einem Feld
      * Schreiben Sie eine Methode findMaximum, die ein Array des Typs int als Parameter
      * übergeben bekommt und die den größten Wert in diesem Array zurückgibt.
      * Tipp: Versuchen Sie, mit einem Durchlauf durch das Array zu kommen.
      */
-
-
+    private static int findMaximum(int[] array){
+        int max = array[0];
+        for(int i = 1; i < array.length; i++){
+            if(max < array[i]){
+                max = array[i];
+            }
+        }return max;
+    }
 
     /** 5. Bestimmen des Index des Maximums in einem Feld
      * Schreiben Sie eine Methode findMaximumIndex, die ein Array des Typs int als Parameter
      * übergeben bekommt und die den Index des größten Werts in diesem Array zurückgibt.
      * Tipp: Versuchen Sie, mit einem Durchlauf durch das Array zu kommen.
      */
+    private static int findMaximumIndex(int[] array){
+        int max = findMaximum(array);
+        int index = 0;
+        for(int i = 1; i < array.length; i++){
+            if(array[i] == max){
+                index = i;
+            }
 
-
+        }return index;
+    }
 
     /** 6. Bestimmen der Häufigkeit des Maximums in einem Feld
      * Schreiben Sie eine Methode countMaximum, die ein Array des Typs int als Parameter
@@ -120,31 +131,26 @@ class MainProgram {
      */
 
 
-
-    /** 7. Sortierung prüfen
-     * Schreiben Sie eine Methode isSorted, die als Parameter ein Array des Typs int
-     * übergeben bekommt. Die Methode isSorted soll true zurückgeben, falls die im Array enthaltenen Werte aufsteigend sortiert sind.
-     * Sonst soll false zurückgegeben werden.
-     */
-
+        /** 7. Sortierung prüfen
+         * Schreiben Sie eine Methode isSorted, die als Parameter ein Array des Typs int
+         * übergeben bekommt. Die Methode isSorted soll true zurückgeben, falls die im Array enthaltenen Werte aufsteigend sortiert sind.
+         * Sonst soll false zurückgegeben werden.
+         */
 
 
-    /** 8. Palindrome
-     * Ein Palindrom ist eine Folge von int-Werten, die vorwärts und rückwärts identisch gelesen werden kann.
-     * Beispiele: 12 34 78 34 12 oder 5 17 85 85 17 5
-     * Schreiben Sie eine Methode checkArray, die ein Array des Typs int übergeben bekommt und überprüft,
-     * ob es sich bei dem Array um ein Palindrom handelt.
-     * Die Methode soll einen Wert des Typs boolean zurückgeben.
-     */
+        /** 8. Palindrome
+         * Ein Palindrom ist eine Folge von int-Werten, die vorwärts und rückwärts identisch gelesen werden kann.
+         * Beispiele: 12 34 78 34 12 oder 5 17 85 85 17 5
+         * Schreiben Sie eine Methode checkArray, die ein Array des Typs int übergeben bekommt und überprüft,
+         * ob es sich bei dem Array um ein Palindrom handelt.
+         * Die Methode soll einen Wert des Typs boolean zurückgeben.
+         */
 
-
-
-    /** 9. Erhöhen der Inhalte eines Feldes
-     * Schreiben Sie eine Methode increaseArray, die als Parameter ein Array des Typs int und einen int-Wert erhält.
-     * Die Methode increaseArray soll alle Werte des Arrays um den im zweiten Parameter übergebenen Wert erhöhen und als neues Array zurückgeben.
-     * Beispiel: Werden ein Array mit den Elementen 80,7,1,56,11,72,43,37 als erstes und der Wert 17 als zweites Argument übergeben,
-     * so soll ein neues(!) Array mit den Werten 97,24,18,73,28,89,60,54 zurückgegeben werden.
-     */
-
+        /** 9. Erhöhen der Inhalte eines Feldes
+         * Schreiben Sie eine Methode increaseArray, die als Parameter ein Array des Typs int und einen int-Wert erhält.
+         * Die Methode increaseArray soll alle Werte des Arrays um den im zweiten Parameter übergebenen Wert erhöhen und als neues Array zurückgeben.
+         * Beispiel: Werden ein Array mit den Elementen 80,7,1,56,11,72,43,37 als erstes und der Wert 17 als zweites Argument übergeben,
+         * so soll ein neues(!) Array mit den Werten 97,24,18,73,28,89,60,54 zurückgegeben werden.
+         */
 
 }
