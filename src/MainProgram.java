@@ -23,7 +23,7 @@ class MainProgram {
         System.out.println("Maximumwert : " + findMaximum(numbers));
         System.out.println("Index des Maximumwertes: " + findMaximumIndex(numbers));
         System.out.println("Häufigkeit des Maximumwertes: " + countMaximum(numbers));
-        System.out.println("Ist es sortiert : " + isSorted(numbers));
+        System.out.println("Ist es sortiert : ");
     }
 
     private static void fillArray(int[] array, boolean wN, int maxA){
@@ -133,12 +133,12 @@ class MainProgram {
      */
     private static int countMaximum(int[] array){
         int max = findMaximum(array);
-        int häufigkeit = 0;
+        int frequency = 0;
         for(int i = 0; i < array.length; i++){
-              if(max < array[i]){
-                  häufigkeit++;
+              if(array[i] == max){
+                  frequency++;
               }
-        }return häufigkeit;
+        }return frequency;
     }
 
         /** 7. Sortierung prüfen
@@ -146,15 +146,7 @@ class MainProgram {
          * übergeben bekommt. Die Methode isSorted soll true zurückgeben, falls die im Array enthaltenen Werte aufsteigend sortiert sind.
          * Sonst soll false zurückgegeben werden.
          */
-        private static int isSorted(int[] array) {
-            int max = findMaximum(array);
-            boolean sort = false;
-            for (int i = 0; i < array.length; i++){
-                if (max < array[i]) {
-                    sort = true;
-                }
-            }return max;
-        }
+
 
         /** 8. Palindrome
          * Ein Palindrom ist eine Folge von int-Werten, die vorwärts und rückwärts identisch gelesen werden kann.
@@ -162,7 +154,11 @@ class MainProgram {
          * Schreiben Sie eine Methode checkArray, die ein Array des Typs int übergeben bekommt und überprüft,
          * ob es sich bei dem Array um ein Palindrom handelt.
          * Die Methode soll einen Wert des Typs boolean zurückgeben.
+         *
          */
+
+
+
 
         /** 9. Erhöhen der Inhalte eines Feldes
          * Schreiben Sie eine Methode increaseArray, die als Parameter ein Array des Typs int und einen int-Wert erhält.
