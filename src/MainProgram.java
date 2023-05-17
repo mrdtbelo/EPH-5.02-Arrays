@@ -22,6 +22,8 @@ class MainProgram {
         System.out.println("Summe der negativen Zahlen: " + sumUpNegatives(numbers));
         System.out.println("Maximumwert : " + findMaximum(numbers));
         System.out.println("Index des Maximumwertes: " + findMaximumIndex(numbers));
+        System.out.println("Häufigkeit des Maximumwertes: " + countMaximum(numbers));
+        System.out.println("Ist es sortiert : " + isSorted(numbers));
     }
 
     private static void fillArray(int[] array, boolean wN, int maxA){
@@ -129,14 +131,30 @@ class MainProgram {
      * Schreiben Sie eine Methode countMaximum, die ein Array des Typs int als Parameter
      * übergeben bekommt und die Häufigkeit der größten Zahl in diesem Array zurückgibt.
      */
-
+    private static int countMaximum(int[] array){
+        int max = findMaximum(array);
+        int häufigkeit = 0;
+        for(int i = 0; i < array.length; i++){
+              if(max < array[i]){
+                  häufigkeit++;
+              }
+        }return häufigkeit;
+    }
 
         /** 7. Sortierung prüfen
          * Schreiben Sie eine Methode isSorted, die als Parameter ein Array des Typs int
          * übergeben bekommt. Die Methode isSorted soll true zurückgeben, falls die im Array enthaltenen Werte aufsteigend sortiert sind.
          * Sonst soll false zurückgegeben werden.
          */
-
+        private static int isSorted(int[] array) {
+            int max = findMaximum(array);
+            boolean sort = false;
+            for (int i = 0; i < array.length; i++){
+                if (max < array[i]) {
+                    sort = true;
+                }
+            }return max;
+        }
 
         /** 8. Palindrome
          * Ein Palindrom ist eine Folge von int-Werten, die vorwärts und rückwärts identisch gelesen werden kann.
