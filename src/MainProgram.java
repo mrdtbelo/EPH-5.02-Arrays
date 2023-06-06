@@ -157,12 +157,12 @@ class MainProgram {
          *
          */
         private static boolean checkArray(int[] array){
-            boolean sort = false;
-            for (int i = 0; i < array.length; i++){
-                if (array.length < array[i]) {
-                    sort = true;
+            for (int i = 0; i < array.length/2; i++){
+                if (array[i] != array[array.length-1-i]) {
+                    return false;
                 }
-            }return sort;
+            }
+            return true;
         }
 
 
@@ -174,12 +174,12 @@ class MainProgram {
          * Beispiel: Werden ein Array mit den Elementen 80,7,1,56,11,72,43,37 als erstes und der Wert 17 als zweites Argument übergeben,
          * so soll ein neues(!) Array mit den Werten 97,24,18,73,28,89,60,54 zurückgegeben werden.
          */
-        private static int increaseArray(int[] array,int number){
-           number = 15;
-           int newArray = 0;
-           for(int i = 0; i < array.length; i++){
-               newArray = array.length + number;
-           }return newArray;
-        }
+        private static int[] increaseArray(int[] array,int amount) {
+            int[] newArray = new int[array.length];
 
+            for (int i = 0; i < array.length; i++) {
+                newArray[i] = array[i] + amount;
+            }
+            return newArray;
+        }
 }
